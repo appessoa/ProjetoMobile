@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="C:\Users\ppess\OneDrive\Área de Trabalho\ProjetoMobile\css\PgLogin.css">
+</head>
+<body>
+
+<section class="section">
+    <div class="container">
+        <div class="login-box">
+            <h1 class="title has-text-centered">Gastronomia Galo Dourado</h1>
+
+            <div class="field">
+                <label class="label">Escolha o tipo:</label>
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="userType" value="garcom" checked>
+                        Sou Garçom
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="userType" value="maitre">
+                        Sou Maitre
+                    </label>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Usuário:</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Seu usuário" id="usuario">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Senha:</label>
+                <div class="control">
+                    <input class="input" type="password" placeholder="Sua senha" id="senha">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control has-text-centered">
+                    <button class="button is-primary" onclick="fazerLogin()">Acessar</button>
+                </div>
+            </div>
+
+            <p class="has-text-danger has-text-centered" id="erroLogin"></p>
+        </div>
+    </div>
+</section>
+
+<script src="C:\Users\ppess\OneDrive\Área de Trabalho\ProjetoMobile\js\PgLogin.js"></script>
+</body>
+</html>

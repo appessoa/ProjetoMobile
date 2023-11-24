@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restaurante</title>
+  <!-- Link para o arquivo CSS do Bulma -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <!-- Link para o seu arquivo CSS personalizado -->
+  <link rel="stylesheet" href="C:\Users\ppess\OneDrive\Área de Trabalho\ProjetoMobile\css\PgGarcom.css">
+</head>
+<body>
+
+<!-- Canto superior: Menu de Login -->
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation" style="background-color: #F0B143;">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#" style="background-color: #F0B143; font-weight: 500;">
+        Gastronomia Galo Dourado
+      </a>
+      <!-- Adicione um link ao redor do ícone de menu -->
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" href="file:///C:/Users/ppess/OneDrive/%C3%81rea%20de%20Trabalho/ProjetoMobile/html/tela_Login.html">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-light login-button" href="file:///C:/Users/ppess/OneDrive/%C3%81rea%20de%20Trabalho/ProjetoMobile/html/tela_Login.html">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+<!-- Título centralizado -->
+<section class="section">
+  <div class="container has-text-centered">
+    <h1 class="title">Olá Garçom Alice Lira</h1>
+  </div>
+</section>
+
+<!-- Box para inserir novo pedido -->
+<section class="section">
+  <div class="container">
+    <div class="box">
+      <h2 class="subtitle">Inserir Novo Pedido</h2>
+      <div class="field">
+        <label class="label">Número da Mesa</label>
+        <div class="control">
+          <input id="numeroMesa" class="input" type="text" placeholder="Digite o número da mesa" oninput="gerarCodigoPedido()">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Código do Pedido</label>
+        <div class="control">
+          <input id="codigoPedido" class="input" type="text" placeholder="Código gerado automaticamente" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Box para o Cardápio -->
+<section class="section">
+  <div class="container">
+    <div class="box">
+      <h2 class="subtitle">Cardápio</h2>
+      
+      <!-- Pratos -->
+      <div class="field">
+        <label class="label">Pratos</label>
+        <div class="control">
+          <div class="item-price-container">
+            <label class="checkbox">
+              <input type="checkbox">
+              Lasanha
+            </label>
+            <label class="label">R$20,00</label>
+          </div>
+          
+          <div class="item-price-container">
+            <label class="checkbox">
+              <input type="checkbox">
+              Salmão Grelhado
+            </label>
+            <label class="label">R$45,00</label>
+          </div>
+          <!-- Adicione mais itens conforme necessário -->
+        </div>
+      </div>
+
+      <!-- Sobremesas -->
+      <div class="field">
+        <label class="label">Sobremesas</label>
+        <div class="control">
+          <div class="item-price-container">
+            <label class="checkbox">
+              <input type="checkbox">
+              Cheesecake
+            </label>
+            <label class="label">R$10,00</label>
+          </div>
+          
+          <div class="item-price-container">
+            <label class="checkbox">
+              <input type="checkbox">
+              Mousse de Chocolate
+            </label>
+            <label class="label">R$15,00</label>
+          </div>
+          <!-- Adicione mais itens conforme necessário -->
+        </div>
+      </div>
+
+      <!-- Bebidas -->
+      <div class="field">
+        <label class="label">Bebidas</label>
+        <div class="control">
+          <div class="item-price-container">
+            <label class="checkbox">
+              <input type="checkbox">
+              Refrigerante
+            </label>
+            <label class="label">R$5,00</label>
+          </div>
+          
+          <div class="item-price-container">
+            <label class="checkbox">
+              <input type="checkbox">
+              Suco de Laranja
+            </label>
+            <label class="label">R$8,00</label>
+          </div>
+          <!-- Adicione mais itens conforme necessário -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Botão Enviar Pedido fora da box -->
+<section class="section" id="enviar">
+    <div class="container has-text-centered">
+      <button id="botaoEnviar" class="button is-primary">Enviar Pedido</button>
+    </div>
+</section>
+
+
+<!-- Título Minhas Mesas -->
+<section class="section">
+    <div class="container has-text-centered">
+      <h2 class="title">Minhas Mesas:</h2>
+    </div>
+  </section>
+  
+  <!-- Lista de Mesas com Status -->
+  <section class="section">
+    <div class="container">
+      <div class="columns is-multiline">
+        <!-- Mesa 1 -->
+        <div class="column is-half-tablet is-one-quarter-desktop">
+          <div class="box mesa" id="mesa1">
+            <h3 class="subtitle">Mesa 1</h3>
+            <p>Status: Pedido Pronto</p>
+          </div>
+        </div>
+  
+        <!-- Mesa 2 -->
+        <div class="column is-half-tablet is-one-quarter-desktop">
+          <div class="box mesa" id="mesa2">
+            <h3 class="subtitle">Mesa 2</h3>
+            <p>Status: > 30 min sem pedir</p>
+          </div>
+        </div>
+  
+        <!-- Mesa 3 -->
+        <div class="column is-half-tablet is-one-quarter-desktop">
+          <div class="box mesa" id="mesa3">
+            <h3 class="subtitle">Mesa 3</h3>
+            <p>Status: Pedido atrasado</p>
+          </div>
+        </div>
+  
+        <!-- Mesa 4 -->
+        <div class="column is-half-tablet is-one-quarter-desktop">
+          <div class="box mesa" id="mesa4">
+            <h3 class="subtitle">Mesa 4</h3>
+            <p>Status: No aguardo da conta</p>
+          </div>
+        </div>
+  
+        <!-- Mesa 5 -->
+        <div class="column is-half-tablet is-one-quarter-desktop">
+          <div class="box mesa" id="mesa5">
+            <h3 class="subtitle">Mesa 5</h3>
+            <p>Status: Mesa livre</p>
+          </div>
+        </div>
+  
+        <!-- Adicione mais mesas conforme necessário -->
+      </div>
+    </div>
+  </section>
+  
+
+
+<!-- Rodapé -->
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p class="has-text-left">
+        Projeto Mobile
+        <br>
+        Alunos:
+        <br>
+        01541292 Alice Lira do Nascimento
+        <br>
+        01538280 Ana Paula Ferreira Pessoa
+        <br>
+        01532606 Carlos Augusto Nogueira Duarte
+        <br>
+        24010714 Ighor Gomes Gonçalves
+        <br>
+        01374898 Maximino Coelho da Silva
+        <br>
+        01535444 Pedro Augusto Borges Quintas
+      </p>
+    </div>
+  </footer>
+  
+  
+<!-- Inclua o link para o arquivo JavaScript aqui -->
+<script src="C:\Users\ppess\OneDrive\Área de Trabalho\ProjetoMobile\js\PgGarcom.js"></script>
+</body>
+</html>

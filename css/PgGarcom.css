@@ -1,0 +1,64 @@
+/* styles.css */
+
+
+/* Adicione espaço entre o nome do item e o preço */
+.item-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+.subtitle {
+    color: black;
+    font-weight: 500;
+  }
+  
+  /* Adicione essas classes com as cores desejadas */
+  .pedido-pronto {
+    background-color: #E0F19C; /* Verde */
+    color: #29741D;
+  }
+  
+  .sem-pedir {
+    background-color: #FFE92B; /* Amarelo */
+    color: #AD8330;
+  }
+  
+  .pedido-atrasado {
+    background-color: #E40901; /* Vermelho */
+    color: white;
+  }
+  
+  .aguardando-conta {
+    background-color: #737373; /* Cinza */
+    color: black;
+  }
+  
+  .mesa-livre {
+    background-color: #FFFFFF; /* Branco */
+    color: black;
+  }
+  
+  /* Adicione estilos para a nova classe de status */
+  .box-status {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+
+/* Remover marcadores da lista */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Alinhar imagem com o texto */
+  .footer ul {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+
+  
+  

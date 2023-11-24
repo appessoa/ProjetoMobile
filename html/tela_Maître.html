@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante</title>
+      <!-- Link para o arquivo CSS do Bulma -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+      <!-- Link para o seu arquivo CSS personalizado -->
+      <link rel="stylesheet" href="C:\Users\ppess\OneDrive\Área de Trabalho\ProjetoMobile\css\PgMaitre.css">
+</head>
+<body>
+
+<!-- Canto superior: Menu de Login -->
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation" style="background-color: #F0B143;">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#" style="background-color: #F0B143; font-weight: 500;">
+        Gastronomia Galo Dourado
+      </a>
+      <!-- Adicione um link ao redor do ícone de menu -->
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" href="file:///C:/Users/ppess/OneDrive/%C3%81rea%20de%20Trabalho/ProjetoMobile/html/tela_Login.html">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-light login-button" href="file:///C:/Users/ppess/OneDrive/%C3%81rea%20de%20Trabalho/ProjetoMobile/html/tela_Login.html">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+<!-- Título centralizado -->
+<section class="section">
+  <div class="container has-text-centered">
+    <h1 class="title">Olá Maître Ana Paula Pessoa</h1>
+  </div>
+</section>
+
+
+<!-- Promoções -->
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle">Promoções</h2>
+
+    <!-- Box para adicionar nova promoção -->
+    <div class="box">
+      <h3 class="subtitle">Adicionar Nova Promoção</h3>
+
+      <!-- Formulário para adicionar promoção -->
+      <form id="formPromocao">
+        <div class="field">
+          <label class="label">Nome da Promoção</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Digite o nome da promoção" id="nomePromocao">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Data Inicial</label>
+          <div class="control">
+            <input class="input" type="date" id="dataInicial">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Data Final</label>
+          <div class="control">
+            <input class="input" type="date" id="dataFinal">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Porcentagem de Desconto</label>
+          <div class="control">
+            <input class="input" type="number" placeholder="Digite a porcentagem" id="porcentagemDesconto">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Descrição</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="Digite a descrição da promoção" id="descricaoPromocao"></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button class="button is-primary" type="button" onclick="adicionarPromocao()">Adicionar Promoção</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Lista de promoções existentes -->
+    <div class="box" id="listaPromocoes">
+      <h3 class="subtitle">Promoções Existentes</h3>
+      <!-- Aqui você pode exibir a lista de promoções adicionadas -->
+    </div>
+  </div>
+</section>
+
+
+  </div>
+</section>
+
+<!-- Filtro por Garçom -->
+<div class="field has-text-centered">
+  <label class="label">Filtrar por Garçom:</label>
+  <div class="control">
+    <div class="select is-centered">
+      <select id="filtroGarcom" onchange="filtrarPorGarcom()">
+        <option value="">Todos os Garçons</option>
+        <option value="Alice Lira">Alice Lira</option>
+        <option value="Carlos Augusto">Carlos Augusto</option>
+        <option value="Ighor Gomes">Ighor Gomes</option>
+        <option value="Pedro Quintas">Pedro Quintas</option>
+        <option value="Maximino Coelho">Maximino Coelho</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Filtro por Status -->
+<div class="field has-text-centered">
+  <label class="label">Filtrar por Status:</label>
+  <div class="control">
+    <div class="select is-centered">
+      <select id="filtroStatus" onchange="filtrarPorStatus()">
+        <option value="">Todos os Status</option>
+        <option value="Mesa Livre">Mesa Livre</option>
+        <option value="Pedido Pronto">Pedido Pronto</option>
+        <option value="Pedido atrasado">Pedido atrasado</option>
+        <option value="> 30 min sem pedir"> 30 min sem pedir</option>
+        <option value="No aguardo da conta">No aguardo da conta</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+<div class="field has-text-centered">
+  <div class="control">
+    <button class="button is-danger" onclick="limparFiltros()">Limpar Filtros</button>
+  </div>
+</div>
+
+
+<!-- Relação de Mesas -->
+<section class="section">
+  <div class="container" id="relacaoMesasContainer">
+    <h2 class="subtitle has-text-centered">Relação de Mesas</h2>
+    <div class="columns is-multiline">
+
+      <!-- Garçom 1 -->
+      <!-- Mesa 1 -->
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa1">
+          <h3 class="subtitle">Mesa 1</h3>
+          <p>Status: Pedido Pronto</p>
+          <p>Garçom: Alice Lira</p>
+        </div>
+      </div>
+
+      <!-- Mesa 2 -->
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa2">
+          <h3 class="subtitle">Mesa 2</h3>
+          <p>Status: > 30 min sem pedir</p>
+          <p>Garçom: Alice Lira</p>
+        </div>
+      </div>
+
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa3">
+          <h3 class="subtitle">Mesa 3</h3>
+          <p>Status: Pedido atrasado</p>
+          <p>Garçom: Alice Lira</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa4">
+          <h3 class="subtitle">Mesa 4</h3>
+          <p>Status: No aguardo da conta</p>
+          <p>Garçom: Alice Lira</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa5">
+          <h3 class="subtitle">Mesa 5</h3>
+          <p>Status: Mesa Livre</p>
+          <p>Garçom: Alice Lira</p>
+        </div>
+      </div>
+
+      <!-- Garçom 2 -->
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa6">
+          <h3 class="subtitle">Mesa 6</h3>
+          <p>Status: No aguardo da conta</p>
+          <p>Garçom: Carlos Augusto</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa7">
+          <h3 class="subtitle">Mesa 7</h3>
+          <p>Status: No aguardo da conta</p>
+          <p>Garçom: Carlos Augusto</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa8">
+          <h3 class="subtitle">Mesa 8</h3>
+          <p>Status: > 30 min sem pedir</p>
+          <p>Garçom: Carlos Augusto</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa9">
+          <h3 class="subtitle">Mesa 9</h3>
+          <p>Status: Mesa Livre</p>
+          <p>Garçom: Carlos Augusto</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa10">
+          <h3 class="subtitle">Mesa 10</h3>
+          <p>Status: Pedido Pronto</p>
+          <p>Garçom: Carlos Augusto</p>
+        </div>
+      </div>
+
+      <!-- Garçom 3 -->
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa11">
+          <h3 class="subtitle">Mesa 11</h3>
+          <p>Status: Pedido Pronto</p>
+          <p>Garçom: Ighor Gomes</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa12">
+          <h3 class="subtitle">Mesa 12</h3>
+          <p>Status: Pedido Pronto</p>
+          <p>Garçom: Ighor Gomes</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa13">
+          <h3 class="subtitle">Mesa 13</h3>
+          <p>Status: Mesa Livre</p>
+          <p>Garçom: Ighor Gomes</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa14">
+          <h3 class="subtitle">Mesa 14</h3>
+          <p>Status: Mesa Livre</p>
+          <p>Garçom: Ighor Gomes</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa15">
+          <h3 class="subtitle">Mesa 15</h3>
+          <p>Status: Mesa Livre</p>
+          <p>Garçom: Ighor Gomes</p>
+        </div>
+      </div>
+
+      <!-- Garçom 4 -->
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa16">
+          <h3 class="subtitle">Mesa 16</h3>
+          <p>Status: Pedido atrasado</p>
+          <p>Garçom: Pedro Quintas</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa17">
+          <h3 class="subtitle">Mesa 17</h3>
+          <p>Status: > 30 min sem pedir</p>
+          <p>Garçom: Pedro Quintas</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa18">
+          <h3 class="subtitle">Mesa 18</h3>
+          <p>Status: Pedido atrasado</p>
+          <p>Garçom: Pedro Quintas</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa19">
+          <h3 class="subtitle">Mesa 19</h3>
+          <p>Status: Mesa Livre</p>
+          <p>Garçom: Pedro Quintas</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa20">
+          <h3 class="subtitle">Mesa 20</h3>
+          <p>Status: Pedido Pronto</p>
+          <p>Garçom: Pedro Quintas</p>
+        </div>
+      </div>
+
+      <!-- Garçom 5 -->
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa21">
+          <h3 class="subtitle">Mesa 21</h3>
+          <p>Status: Pedido Pronto</p>
+          <p>Garçom: Maximino Coelho</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa22">
+          <h3 class="subtitle">Mesa 22</h3>
+          <p>Status: Mesa Livre</p>
+          <p>Garçom: Maximino Coelho</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa23">
+          <h3 class="subtitle">Mesa 23</h3>
+          <p>Status: Pedido atrasado</p>
+          <p>Garçom: Maximino Coelho</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa24">
+          <h3 class="subtitle">Mesa 24</h3>
+          <p>Status: > 30 min sem pedir</p>
+          <p>Garçom: Maximino Coelho</p>
+        </div>
+      </div>
+      <div class="column is-half-tablet is-one-quarter-desktop">
+        <div class="box mesa" id="mesa25">
+          <h3 class="subtitle">Mesa 25</h3>
+          <p>Status: No aguardo da conta</p>
+          <p>Garçom: Maximino Coelho</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Inclua o link para o arquivo JavaScript aqui -->
+<script src="maitre.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+<!-- Rodapé -->
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p class="has-text-left">
+        Projeto Mobile
+        <br>
+        Alunos:
+        <br>
+        01541292 Alice Lira do Nascimento
+        <br>
+        01538280 Ana Paula Ferreira Pessoa
+        <br>
+        01532606 Carlos Augusto Nogueira Duarte
+        <br>
+        24010714 Ighor Gomes Gonçalves
+        <br>
+        01374898 Maximino Coelho da Silva
+        <br>
+        01535444 Pedro Augusto Borges Quintas
+      </p>
+    </div>
+  </footer>
+  
+ 
+<script src="C:\Users\ppess\OneDrive\Área de Trabalho\ProjetoMobile\js\PgMaitre.js"></script>
+</body>
+</html>
