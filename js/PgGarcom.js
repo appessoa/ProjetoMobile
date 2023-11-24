@@ -1,5 +1,3 @@
-
-
 // codigo mesa.js
 
 document.addEventListener("DOMContentLoaded", function () {
