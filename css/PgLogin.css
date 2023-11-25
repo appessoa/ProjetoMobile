@@ -22,5 +22,7 @@ body {
   /* Estilo para o texto dentro do rodapé personalizado */
   .footer.personalizado p {
     margin: 0;
+    background-color: #F0B143;
+    color: #F0B143;
   }
   
