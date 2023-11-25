@@ -30,25 +30,36 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
 
-// button.js
+// script.js
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Adicione o evento de clique ao botão para chamar a função enviarPedido()
-    var botaoEnviar = document.getElementById('botaoEnviar');
-    botaoEnviar.addEventListener('click', enviarPedido);
+  // Adicione o evento de clique ao botão para chamar a função enviarPedido()
+  var botaoEnviar = document.getElementById('botaoEnviar');
+  botaoEnviar.addEventListener('click', enviarPedido);
+});
+
+// Função para enviar o pedido
+function enviarPedido() {
+  // Aqui você pode acessar o ID do botão usando this.id
+  var buttonId = this.id;
+
+  // Adicione a lógica para enviar o pedido aqui
+
+  // Exibe um popup informando que o pedido foi enviado
+  alert("Pedido enviado!");
+
+  // Limpa as seleções dos checkboxes
+  limparSelecoes();
+}
+
+// Função para limpar as seleções dos checkboxes
+function limparSelecoes() {
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(function(checkbox) {
+    checkbox.checked = false;
   });
-  
-  // Função para enviar o pedido
-  function enviarPedido() {
-    // Aqui você pode acessar o ID do botão usando this.id
-    var buttonId = this.id;
-  
-    // Adicione a lógica para enviar o pedido aqui
-  
-    // Exibe um popup informando que o pedido foi enviado
-    alert("Pedido enviado!");
-  }
-  
+}
+
   
 
 
