@@ -12,7 +12,7 @@ function fazerLogin() {
         window.location.href = "https://appessoa.github.io/ProjetoMobile/html/tela_Gar%C3%A7om.html";
     } else if (userType === 'maitre' && usuario === 'apessoa' && senha === 'apessoa') {
         // Redireciona para a página do Maitre
-        window.location.href = "https://appessoa.github.io/ProjetoMobile/html/tela_Ma%C3%AEtre.html";
+        window.location.href = "https://appessoa.github.io/ProjetoMobile/html/tela_Maitre.html";
     } else {
         // Exibe mensagem de erro
         erroLogin.textContent = 'Usuário ou senha incorretos.';
