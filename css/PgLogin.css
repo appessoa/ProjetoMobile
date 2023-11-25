@@ -12,17 +12,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para o rodapé personalizado */
-.footer.personalizado {
+.footer {
     background-color: #F0B143;
     color: #F0B143;
     padding: 20px;
   }
-  
-  /* Estilo para o texto dentro do rodapé personalizado */
-  .footer.personalizado p {
-    margin: 0;
-    background-color: #F0B143;
-    color: #F0B143;
-  }
-  
