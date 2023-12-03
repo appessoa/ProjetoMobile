@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Função para validar o número da mesa
   function validarNumeroMesa(numeroMesa) {
     // Verifica se o número da mesa é válido (1, 2, 3, 4, 5 ou 01, 02, 03, 04, 05)
-    var numerosValidos = ["1", "2", "3", "4", "5", "01", "02", "03", "04", "05"];
+    var numerosValidos = ["0", "1", "2", "3", "4", "5", "01", "02", "03", "04", "05"];
     return numerosValidos.includes(numeroMesa);
   }
 
