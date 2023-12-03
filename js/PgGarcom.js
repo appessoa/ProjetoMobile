@@ -1,32 +1,52 @@
-// codigo mesa.js
-
 document.addEventListener("DOMContentLoaded", function () {
-    // Função para gerar o código do pedido
-    function gerarCodigoPedido() {
-      // Obtém o número da mesa digitado pelo usuário
-      var numeroMesa = document.getElementById('numeroMesa').value;
-  
-      // Gera um código de pedido combinando 'M' (para mesa), o número da mesa e a numeração da data e horário
-      var dataHora = new Date();
-      var ano = dataHora.getFullYear();
-      var mes = ('0' + (dataHora.getMonth() + 1)).slice(-2);
-      var dia = ('0' + dataHora.getDate()).slice(-2);
-      var horas = ('0' + dataHora.getHours()).slice(-2);
-      var minutos = ('0' + dataHora.getMinutes()).slice(-2);
-  
-      var numeracaoDataHora = ano + mes + dia + '.' + horas + minutos;
-  
-      var codigoPedido = 'M' + numeroMesa + '_' + numeracaoDataHora;
-  
-      // Atualiza o campo de código do pedido
-      document.getElementById('codigoPedido').value = codigoPedido;
-    }
-  
-    // Adiciona o evento de input ao campo de número da mesa para chamar a função quando o número da mesa é alterado
-    document.getElementById('numeroMesa').addEventListener('input', gerarCodigoPedido);
-  });
-  
+  // Função para validar o número da mesa
+  function validarNumeroMesa(numeroMesa) {
+    // Verifica se o número da mesa é válido (1, 2, 3, 4, 5 ou 01, 02, 03, 04, 05)
+    var numerosValidos = ["1", "2", "3", "4", "5", "01", "02", "03", "04", "05"];
+    return numerosValidos.includes(numeroMesa);
+  }
 
+  // Função para gerar o código do pedido
+  function gerarCodigoPedido() {
+    // Obtém o número da mesa digitado pelo usuário
+    var numeroMesa = document.getElementById('numeroMesa').value;
+
+    // Valida se o número da mesa está vazio
+    if (numeroMesa === '') {
+      // Se estiver vazio, limpa o campo de código do pedido e sai da função
+      document.getElementById('codigoPedido').value = '';
+      return;
+    }
+
+    // Valida o número da mesa
+    if (!validarNumeroMesa(numeroMesa)) {
+      alert("Ops... Parece que essa não é uma mesa sua. Favor digitar número referente a uma das suas mesas!");
+      // Limpa o campo de número da mesa
+      document.getElementById('numeroMesa').value = '';
+      // Limpa o campo de código do pedido
+      document.getElementById('codigoPedido').value = '';
+      return;
+    }
+
+    // Gera um código de pedido combinando 'M' (para mesa), o número da mesa e a numeração da data e horário
+    var dataHora = new Date();
+    var ano = dataHora.getFullYear();
+    var mes = ('0' + (dataHora.getMonth() + 1)).slice(-2);
+    var dia = ('0' + dataHora.getDate()).slice(-2);
+    var horas = ('0' + dataHora.getHours()).slice(-2);
+    var minutos = ('0' + dataHora.getMinutes()).slice(-2);
+
+    var numeracaoDataHora = ano + mes + dia + '.' + horas + minutos;
+
+    var codigoPedido = 'M' + numeroMesa + '_' + numeracaoDataHora;
+
+    // Atualiza o campo de código do pedido
+    document.getElementById('codigoPedido').value = codigoPedido;
+  }
+
+  // Adiciona o evento de input ao campo de número da mesa para chamar a função quando o número da mesa é alterado
+  document.getElementById('numeroMesa').addEventListener('input', gerarCodigoPedido);
+});
 
 // script.js
 
