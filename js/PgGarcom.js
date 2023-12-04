@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('numeroMesa').addEventListener('input', gerarCodigoPedido);
 });
 
+document.title = "Gastronimia Galo Dourado";
+
 // script.js
 
 document.addEventListener("DOMContentLoaded", function () {
