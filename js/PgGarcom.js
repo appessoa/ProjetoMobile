@@ -78,9 +78,6 @@ function limparSelecoes() {
   });
 }
 
-  
-
-
 // Cores.js
 // Função para mudar as cores por status
 function mudarCoresPorStatus() {
@@ -111,9 +108,7 @@ function mudarCoresPorStatus() {
   // Chama a função ao carregar a página
   document.addEventListener('DOMContentLoaded', mudarCoresPorStatus);
   
-
-
-  // Seu JavaScript aqui
+// Popup detalhes do pedido
 
 function mostrarPopup(idMesa) {
   var mensagem = "";
