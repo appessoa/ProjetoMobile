@@ -111,3 +111,32 @@ function mudarCoresPorStatus() {
   // Chama a função ao carregar a página
   document.addEventListener('DOMContentLoaded', mudarCoresPorStatus);
   
+
+
+  // Seu JavaScript aqui
+
+function mostrarPopup(idMesa) {
+  var mensagem = "";
+
+  switch (idMesa) {
+    case 'mesa1':
+      mensagem = "Detalhes da Mesa 1:\nStatus: Pedido Pronto\nCódigo do Pedido: M1_20231203.2018\nGarçom: Alice Lira\nEntradas:\nR$25,00 Ceviche de Peixe\nR$12,00 Bruschetta\nPrato Principal:\nR$40,00 Moqueca de Peixe\nR$45,00 Salmão Grelhado\nSobremesas:\nR$10,00 Cheesecake\nR$15,00 Mousse de Chocolate\n\nBebidas:\nR$30,00 Vinho\nR$30,00 Vinho\n\nVALOR DA CONTA: R$207,00\nVALOR DESCONTO: R$ 20,70\nTOTAL DA CONTA: R$186,30";
+      break;
+    case 'mesa2':
+      mensagem = "Detalhes da Mesa 2:\nStatus: > 30 min sem pedir\nCódigo do Pedido: M2_20231203.2050\nGarçom: Alice Lira\nEntradas:\nR$50,00 Tábua de queijos e torradas\nPrato Principal:\nR$60,00 Carne de Sol com mandioca\nSobremesas:\nR$12,00 Abacaxi Grelhado com Sorvete\nBebidas:\nR$20,00 Soda Italiana\nVALOR DA CONTA: R$142,00\nVALOR DESCONTO: R$ 14,20\nTOTAL DA CONTA: R$127,80";
+      break;
+    case 'mesa3':
+      mensagem = "Detalhes da Mesa 3:\nStatus: Pedido Atrasado\nCódigo do Pedido: M03_20231203.2057\nGarçom: Alice Lira\nPrato Principal:\nR$35,00 Peixe Grelhado com Batatas e Legumes\nSobremesas:\nR$08,00 Pão de Mel\nBebidas:\nR$20,00 Soda Italiana\nVALOR DA CONTA: R$63,00\nVALOR DESCONTO: R$ 6,30\nTOTAL DA CONTA: R$56,70";
+      break;
+    case 'mesa4':
+      mensagem = "Detalhes da Mesa 3:\nStatus: No aguardo da conta\nCódigo do Pedido: M04_20231203.2103\nGarçom: Alice Lira\nEntradas:\nR$18,00 Bolinho de Bacalhau \nR$20,00 Pastel de Camarão\nPrato Principal:\nR$35,00 Peixe Grelhado com Batatas e Legumes\nR$68,00 Nhoque de Banana da Terra com Carne Seca\nSobremesas:\nR$08,00 Pão de Mel\nR$10,00 Cheesecake\nBebidas:\nR$20,00 Soda Italiana\nR$18,00 Suco de Laranja \nVALOR DA CONTA: R$197,00 \nVALOR DESCONTO: R$ 19,70\nTOTAL DA CONTA: R$177,30";
+      break;
+    case 'mesa5':
+      mensagem = "Detalhes da Mesa 5:\nStatus: Mesa Livre\nCódigo do Pedido: \nGarçom: Alice Lira";
+      break;
+    default:
+      mensagem = "Mesa não encontrada.";
+  }
+
+  alert(mensagem);
+}
